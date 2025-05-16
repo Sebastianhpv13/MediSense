@@ -4,8 +4,8 @@
 #define USE_ARDUINO_INTERRUPTS false  // <-- ESTO ES CRUCIAL PARA ESP8266
 #include <PulseSensorPlayground.h>
 
-const char* ssid     = "Totalplay-BB9D"; 
-const char* password = "BB9DC070U2MK67u9"; 
+const char* ssid     = "SSID"; 
+const char* password = "####"; 
 const char* server   = "apex.oracle.com"; 
 
 #define led D0
@@ -91,7 +91,7 @@ void sendData(int sensor, String tipo, int valor) {
     return;
   }
 
-  String url = "/pls/apex/a00838407tec/sendreg/senddata?pcods=" + String(sensor) + "&ptipo=" + tipo + "&pvalor=" + String(valor);
+  String url = "###############################" + String(sensor) + "&ptipo=" + tipo + "&pvalor=" + String(valor);
   Serial.print("Enviando GET a: ");
   Serial.println(url);
 
@@ -120,7 +120,7 @@ void sendAct(int actuador, int valor) {
     return;
   }
 
-  String url = "/pls/apex/a00838407tec/sendestatus/senddata?pcode=" + String(actuador) + "&pvalor=" + String(valor);
+  String url = "###########################" + String(actuador) + "&pvalor=" + String(valor);
 
   Serial.print("Enviando GET a: ");
   Serial.println(url);
