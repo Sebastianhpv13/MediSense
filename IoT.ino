@@ -16,8 +16,8 @@ MFRC522 rfid(SS_PIN, RST_PIN);  // Instancia del lector
 
 int sensorFuerza = A0;
 
-const char* ssid     = "Totalplay-BB9D"; 
-const char* password = "BB9DC070U2MK67u9"; 
+const char* ssid     = "SSID"; 
+const char* password = "####"; 
 const char* server = "apex.oracle.com"; 
 WiFiClientSecure client;
 
@@ -70,9 +70,9 @@ void tarjeta(){
   Serial.print("UID detectado: ");
   Serial.println(uidString);
 
-  if (uidString == "7F61B40C") {
+  if (uidString == "########") {
     sendData(337, "Credencial", 1);
-  } else if (uidString == "43EEFE28") {
+  } else if (uidString == "########") {
     sendData(337, "Credencial", 2);
   }else {
     sendData(0, "Credencial", 0);
@@ -132,7 +132,7 @@ void sendData(int sensor, String tipo, int valor) {
     return;
   }
 
-  String url = "/pls/apex/a00838407tec/sendreg/senddata?pcods=" + String(sensor) + "&ptipo=" + tipo + "&pvalor=" + String(valor);
+  String url = "#######################" + String(sensor) + "&ptipo=" + tipo + "&pvalor=" + String(valor);
 
   Serial.print("Enviando GET a: ");
   Serial.println(url);
@@ -164,7 +164,7 @@ void sendAct(int actuador, int valor) {
     return;
   }
 
-  String url = "/pls/apex/a00838407tec/sendestatus/senddata?pcode=" + String(actuador) + "&pvalor=" + String(valor);
+  String url = "######################################" + String(actuador) + "&pvalor=" + String(valor);
 
   Serial.print("Enviando GET a: ");
   Serial.println(url);
